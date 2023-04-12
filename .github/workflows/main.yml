@@ -1,3 +1,9 @@
+name: Inflammation
+
+on: push
+
+jobs:
+  build:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
