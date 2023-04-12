@@ -1,6 +1,6 @@
 name: Inflammation
 
-on: push
+on: push 
 
 jobs:
   build:

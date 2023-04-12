@@ -12,7 +12,8 @@ import pytest
         ([[1, 2], [3, 4], [5, 6]], [3, 4]),
         ([[1, 2, 5], [3, 4, 7], [5, 6, 6]], [3, 4, 6]),
         ([[1, 2, 5], [3, 4, 8], [5, 7, 6], [8, 10, 3]], [4.25, 5.75, 5.5])
-    ])
+    ],
+    ids=("Zeros", "Integers", "Extra days", "Floats and extra patients"))
 def test_daily_mean(test, expected):
     """Test mean function works for array of zeroes and positive integers."""
     from inflammation.models import daily_mean
