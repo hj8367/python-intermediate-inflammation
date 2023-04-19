@@ -55,6 +55,7 @@ def patient_normalise(data):
     normalised[np.isnan(normalised)] = 0
     return normalised
 
+
 class Observation:
     def __init__(self, day, value):
         self.day = day
@@ -63,6 +64,7 @@ class Observation:
     def __str__(self):
         return str(self.value)
 
+
 class Person:
     def __init__(self, name):
         self.name = name
@@ -70,11 +72,14 @@ class Person:
     def __str__(self):
         return self.name
 
+
 class Patient(Person):
     """A patient in an inflammation study."""
-    def __init__(self, name):
+    def __init__(self, name, observations=None):
         super().__init__(name)
         self.observations = []
+        if observations is not None:
+            self.observations = observations
 
     def add_observation(self, value, day=None):
         if day is None:
@@ -89,11 +94,12 @@ class Patient(Person):
         self.observations.append(new_observation)
         return new_observation
 
+
 class Doctor(Person):
     def __init__(self, name):
         super().__init__(name)
         self.patients = []
-    
+
     def add_patient(self, new_patient):
         # A crude check by name if this patient is already looked after
         # by this doctor before adding them
@@ -101,6 +107,7 @@ class Doctor(Person):
             if patient.name == new_patient.name:
                 return
         self.patients.append(new_patient)
+
 
 alice = Patient('Alice')
 print(alice)
@@ -111,5 +118,5 @@ print(obs)
 bob = Person('Bob')
 print(bob)
 
-obs = bob.add_observation(4)
-print(obs)
+# obs = bob.add_observation(4)
+# print(obs)
