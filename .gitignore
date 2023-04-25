@@ -16,3 +16,6 @@
 # Virtual environments
 venv/
 .venv/
+
+# Other peoples cloned repositories
+python-intermediate-inflammation/
